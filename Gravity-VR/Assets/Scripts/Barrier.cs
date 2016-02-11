@@ -6,6 +6,7 @@ public class Barrier : MonoBehaviour {
 	
 	public float radius = 20f; //radius of the circle this would fit in
 	public int segments = 5; //number of triangles to split the long component into
+	public float height = 5f;
 	public GameObject template;
     private GameObject next;
 	SphericalCoordinates p1, p2, p3, p4;
@@ -48,8 +49,8 @@ public class Barrier : MonoBehaviour {
 
 	private void buildMesh(Mesh mesh) {
         int triBase;
-        int numVertices =  (segments - 1) * 2 + 6;
-        int numTriangles =  (4 * segments) + 4;
+        int numVertices =  (segments - 1) * 2 + 10;
+        int numTriangles =  (4 * segments) + 14;
 
 		p2.SetRotation (p1.polar, p4.elevation);
 		p3.SetRotation (p4.polar, p1.elevation);
@@ -82,21 +83,69 @@ public class Barrier : MonoBehaviour {
         vertices[4] = leftMid - center;
         vertices[5] = rightMid - center;
 
-        triangles[0] = 0;
-        triangles[1] = 5;
-        triangles[2] = 1;
+		Vector3 norm = Vector3.Cross ((p1Cart - p2Cart), (p4Cart - p2Cart)).normalized;
 
-        triangles[3] = 0;
-        triangles[4] = 4;
-        triangles[5] = 5;
+		for (int i = 0; i < 6; i++) {
+			vertices [i + 6] = vertices [i] - height*norm;
+		}
+		//top rectangle
+        triangles[0] = 10;
+        triangles[1] = 7;
+        triangles[2] = 6;
 
-        triangles[6] = 4;
-        triangles[7] = 2;
-        triangles[8] = 5;
+        triangles[3] = 7;
+        triangles[4] = 10;
+        triangles[5] = 11;
 
-        triangles[9] = 5;
-        triangles[10] = 2;
-        triangles[11] = 3;
+        triangles[6] = 10;
+        triangles[7] = 8;
+        triangles[8] = 11;
+
+        triangles[9] = 11;
+        triangles[10] = 8;
+        triangles[11] = 9;
+
+		//left side rectangle
+		triangles[12] = 4;
+		triangles[13] = 10;
+		triangles[14] = 6;
+
+		triangles[15] = 4;
+		triangles[16] = 6;
+		triangles[17] = 0;
+
+		triangles[18] = 4;
+		triangles[19] = 2;
+		triangles[20] = 10;
+
+		triangles[21] = 2;
+		triangles[22] = 8;
+		triangles[23] = 10;
+
+		//right side rectangle
+		for (int i = 0; i < 12; i+=3) {
+			triangles [i + 24] = triangles [i + 12] + 1;
+			triangles [i + 25] = triangles [i + 14] + 1;
+			triangles [i + 26] = triangles [i + 13] + 1;
+		}
+
+		//top rectangle
+		triangles[36] = 6;
+		triangles [37] = 7;
+		triangles [38] = 1;
+
+		triangles [39] = 6;
+		triangles [40] = 1;
+		triangles [41] = 0;
+
+		//bottom rectangle
+		triangles[42] = 9;
+		triangles [43] = 8;
+		triangles [44] = 2;
+
+		triangles [45] = 9;
+		triangles [46] = 2;
+		triangles [47] = 3;
 
         int leftIdx = 0;
         int rightIdx = 1;
@@ -113,7 +162,7 @@ public class Barrier : MonoBehaviour {
             vertices[nLIdx] = nLCart;
             vertices[nRIdx] = nRCart;
 
-            triBase = 12 * i;
+            triBase = 12 * i + 36;
             triangles[triBase] = nLIdx;
             triangles[triBase+1] = 4;
             triangles[triBase + 2] = leftIdx;
