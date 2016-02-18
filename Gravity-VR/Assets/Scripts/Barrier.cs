@@ -49,16 +49,14 @@ public class Barrier : MonoBehaviour {
 
 	private void buildMesh(Mesh mesh) {
         int triBase;
-        int numVertices = 12;// (segments - 1) * 2 + 10;
-        int numTriangles = 48;// (4 * segments) + 14;
+        int numVertices = (segments - 1) * 2 + 12;
+        int numTriangles = (4 * segments) + 16;
 
 		p2.SetRotation (p1.polar, p4.elevation);
 		p3.SetRotation (p4.polar, p1.elevation);
         float polarStep =  (p4.polar - p1.polar) / segments;
         polarStep = polarStep > 0 ? polarStep - 2 * Mathf.PI : polarStep;
-        Debug.Log(p1.polar);
-        Debug.Log(p4.polar);
-        Debug.Log(polarStep);
+
         float eleStep = 0;//(p1.elevation - p4.elevation) / segments;
         //set the smaller value to 0
         //polarStep = Mathf.Abs(polarStep) > Mathf.Abs(eleStep) ? 0 : polarStep;
@@ -147,22 +145,22 @@ public class Barrier : MonoBehaviour {
 		triangles [46] = 2;
 		triangles [47] = 3;
 
-        /*int leftIdx = 0;
+        int leftIdx = 0;
         int rightIdx = 1;
         for (int i = 1; i < segments; i++) {
             SphericalCoordinates newLeft = p1.Rotate(polarStep, i*eleStep);
-            Debug.Log(newLeft.polar);
             SphericalCoordinates newRight = p2.Rotate(polarStep, i*eleStep);
-            Debug.Log(newRight.polar);
+
             Vector3 nRCart = newRight.toCartesian - center;
             Vector3 nLCart = newLeft.toCartesian - center;
 
-            int nLIdx = 2 * i + 4;
-            int nRIdx = 2 * i + 5;
+            int nLIdx = 2 * i + 10;
+            int nRIdx = 2 * i + 11;
             vertices[nLIdx] = nLCart;
             vertices[nRIdx] = nRCart;
 
             triBase = 12 * i + 36;
+
             triangles[triBase] = nLIdx;
             triangles[triBase+1] = 4;
             triangles[triBase + 2] = leftIdx;
@@ -183,7 +181,7 @@ public class Barrier : MonoBehaviour {
             rightIdx = nRIdx;
         }
 
-        triBase = (3*numTriangles)-12;
+        triBase = (3*numTriangles) - 12;
         triangles[triBase] = 2;
         triangles[triBase + 1] = 4;
         triangles[triBase + 2] = leftIdx;
@@ -198,8 +196,8 @@ public class Barrier : MonoBehaviour {
 
         triangles[triBase + 9] = 3;
         triangles[triBase + 10] = rightIdx;
-        triangles[triBase + 11] = 5;*/
-        
+        triangles[triBase + 11] = 5;
+
         state = 'i';
         mesh.name = "Barrier";
         mesh.vertices = vertices;

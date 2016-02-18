@@ -829,7 +829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 20
   segments: 4
-  height: 10
+  height: 1
   template: {fileID: 142372, guid: 3ffff14ea2068c7409d2f500cbe15190, type: 2}
 --- !u!4 &1174119579 stripped
 Transform:
