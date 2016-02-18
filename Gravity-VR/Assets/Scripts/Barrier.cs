@@ -24,6 +24,7 @@ public class Barrier : MonoBehaviour {
         p3 = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, 0, 2 * Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
         p4 = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, 0, 2 * Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
     }
+
 	void OnMouseDown() {
 		RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -67,7 +68,8 @@ public class Barrier : MonoBehaviour {
         p2Cart = p2.toCartesian;
         p3Cart = p3.toCartesian;
         p4Cart = p4.toCartesian;
-        
+
+        Vector3[] normals = new Vector3[numVertices];
         Vector3[] vertices = new Vector3[numVertices];
         int[] triangles = new int[3*numTriangles];
         Vector3 leftMid = (p1Cart+ p3Cart)/ 2;
@@ -81,8 +83,7 @@ public class Barrier : MonoBehaviour {
         vertices[4] = leftMid - center;
         vertices[5] = rightMid - center;
 
-		Vector3 norm = Vector3.Cross ((p1Cart - p2Cart), (p4Cart - p2Cart)).normalized;
-
+        Vector3 norm = -center.normalized;// Vector3.Cross ((p1Cart - p2Cart), (p4Cart - p2Cart)).normalized;
 		for (int i = 0; i < 6; i++) {
 			vertices [i + 6] = vertices [i] + height*norm;
 		}
@@ -202,7 +203,9 @@ public class Barrier : MonoBehaviour {
         mesh.name = "Barrier";
         mesh.vertices = vertices;
         mesh.triangles = triangles;
+        //mesh.RecalculateNormals();
         next.GetComponent<MeshFilter>().sharedMesh = mesh;
+        next.GetComponent<MeshCollider>().sharedMesh = mesh;
         next.transform.position = center;
 	}
 }
