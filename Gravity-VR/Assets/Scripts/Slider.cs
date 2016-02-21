@@ -44,15 +44,18 @@ public class Slider : MonoBehaviour {
             //Debug.Log("ENTERED MOVEMENT CONDITION");
             //Debug.Log(curPosition.toCartesian);
             transform.position = curPosition.toCartesian;
+            //Debug.Log(transform.rotation);
             transform.LookAt(Vector3.zero);
+            transform.Rotate(0, 90, 0, Space.Self);
+            //Debug.Log(transform.rotation);
 
-        } else if (movementDimension == 1 && vertical !=0)
+        } /*else if (movementDimension == 1 && vertical !=0)
         {
             float degrees = angularSpeed * Time.deltaTime;
             curPosition.RotateElevationAngle(degrees);
             transform.position = curPosition.toCartesian;
             transform.LookAt(Vector3.zero);
-        }
+        }*/
 
         
     }
