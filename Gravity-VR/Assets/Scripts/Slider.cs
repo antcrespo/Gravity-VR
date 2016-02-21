@@ -36,8 +36,8 @@ public class Slider : MonoBehaviour {
 
         if (movementDimension == 0 && horizontal != 0)
         {
-
-            float degrees = angularSpeed * Time.deltaTime;
+            int sign = horizontal > 0 ? 1 : -1;
+            float degrees = angularSpeed * Time.deltaTime * sign;
             //Debug.Log(degrees);
             //startPostion.polar - curPosition.polar + degrees;
             curPosition.RotatePolarAngle(degrees);
@@ -49,13 +49,15 @@ public class Slider : MonoBehaviour {
             transform.Rotate(0, 90, 0, Space.Self);
             //Debug.Log(transform.rotation);
 
-        } /*else if (movementDimension == 1 && vertical !=0)
+        } else if (movementDimension == 1 && vertical !=0)
         {
-            float degrees = angularSpeed * Time.deltaTime;
+            int sign = vertical > 0 ? 1 : -1;
+            float degrees = angularSpeed * Time.deltaTime * sign;
             curPosition.RotateElevationAngle(degrees);
             transform.position = curPosition.toCartesian;
             transform.LookAt(Vector3.zero);
-        }*/
+            transform.Rotate(0, 90, 0, Space.Self);
+        }
 
         
     }
