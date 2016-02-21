@@ -19,10 +19,10 @@ public class Barrier : MonoBehaviour {
 	private char state = 'i';
     void Start()
     {
-        p1 = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, 0, 2 * Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
-        p2 = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, 0, 2 * Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
-        p3 = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, 0, 2 * Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
-        p4 = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, 0, 2 * Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
+        p1 = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, -Mathf.PI, Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
+        p2 = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, -Mathf.PI, Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
+        p3 = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, -Mathf.PI, Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
+        p4 = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, -Mathf.PI, Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
     }
 
 	void OnMouseDown() {
@@ -32,7 +32,6 @@ public class Barrier : MonoBehaviour {
 		case 'i':
                 if (Physics.Raycast (ray, out hit))
                 {
-                    next = Instantiate(template);
                     p1.FromCartesian(hit.point);
 				    state = 'd';
 			}
@@ -52,9 +51,17 @@ public class Barrier : MonoBehaviour {
         int triBase;
         int numVertices = (segments - 1) * 2 + 12;
         int numTriangles = (4 * segments) + 16;
-
-		p2.SetRotation (p1.polar, p4.elevation);
-		p3.SetRotation (p4.polar, p1.elevation);
+        float polarDif = Mathf.Min((p4.polar - p1.polar), (p1.polar - p4.polar))/2f;
+        float eleDif = Mathf.Min((p4.elevation - p1.elevation), (p1.elevation - p4.elevation))/2f;
+        //Debug.Log(polarDif);
+        p1.SetRotation(-polarDif, eleDif);
+        p2.SetRotation(-polarDif, -eleDif);
+        p3.SetRotation(polarDif, eleDif);
+        p4.SetRotation(polarDif, -eleDif);
+        //Debug.Log(p1.ToString());
+        //Debug.Log(p2.ToString());
+        //Debug.Log(p3.ToString());
+        //Debug.Log(p4.ToString());
         float polarStep =  (p4.polar - p1.polar) / segments;
         polarStep = polarStep > 0 ? polarStep - 2 * Mathf.PI : polarStep;
 
@@ -64,6 +71,7 @@ public class Barrier : MonoBehaviour {
         //eleStep = polarStep == 0 ? eleStep : 0;
 
         Vector3 p1Cart, p2Cart, p3Cart, p4Cart;
+
         p1Cart = p1.toCartesian;
         p2Cart = p2.toCartesian;
         p3Cart = p3.toCartesian;
@@ -89,36 +97,36 @@ public class Barrier : MonoBehaviour {
 		}
 		//top rectangle
         triangles[0] = 10;
-        triangles[1] = 7;
-        triangles[2] = 6;
+        triangles[1] = 6;
+        triangles[2] = 7;
 
-        triangles[3] = 7;
-        triangles[4] = 10;
+        triangles[3] = 10;
+        triangles[4] = 7;
         triangles[5] = 11;
 
-        triangles[6] = 10;
-        triangles[7] = 8;
+        triangles[6] = 8;
+        triangles[7] = 10;
         triangles[8] = 11;
 
-        triangles[9] = 11;
-        triangles[10] = 8;
+        triangles[9] = 8;
+        triangles[10] = 11;
         triangles[11] = 9;
 
 		//left side rectangle
-		triangles[12] = 4;
-		triangles[13] = 10;
+		triangles[12] = 10;
+		triangles[13] = 4;
 		triangles[14] = 6;
 
-		triangles[15] = 4;
-		triangles[16] = 6;
+		triangles[15] = 6;
+		triangles[16] = 4;
 		triangles[17] = 0;
 
-		triangles[18] = 4;
-		triangles[19] = 2;
+		triangles[18] = 2;
+		triangles[19] = 4;
 		triangles[20] = 10;
 
-		triangles[21] = 2;
-		triangles[22] = 8;
+		triangles[21] = 8;
+		triangles[22] = 2;
 		triangles[23] = 10;
 
 		//right side rectangle
@@ -129,21 +137,21 @@ public class Barrier : MonoBehaviour {
 		}
 
 		//top rectangle
-		triangles [36] = 6;
-		triangles [37] = 7;
+		triangles [36] = 7;
+		triangles [37] = 6;
 		triangles [38] = 1;
 
-		triangles [39] = 6;
-		triangles [40] = 1;
+		triangles [39] = 1;
+		triangles [40] = 6;
 		triangles [41] = 0;
 
 		//bottom rectangle
-		triangles [42] = 9;
-		triangles [43] = 8;
+		triangles [42] = 8;
+		triangles [43] = 9;
 		triangles [44] = 2;
 
-		triangles [45] = 9;
-		triangles [46] = 2;
+		triangles [45] = 2;
+		triangles [46] = 9;
 		triangles [47] = 3;
 
         int leftIdx = 0;
@@ -162,50 +170,50 @@ public class Barrier : MonoBehaviour {
 
             triBase = 12 * i + 36;
 
-            triangles[triBase] = nLIdx;
-            triangles[triBase+1] = 4;
+            triangles[triBase] = 4;
+            triangles[triBase+1] = nLIdx;
             triangles[triBase + 2] = leftIdx;
 
-            triangles[triBase + 3] = nLIdx;
-            triangles[triBase + 4] = leftIdx;
+            triangles[triBase + 3] = leftIdx;
+            triangles[triBase + 4] = nLIdx;
             triangles[triBase + 5] = nRIdx;
 
-            triangles[triBase + 6] = nRIdx;
-            triangles[triBase + 7] = leftIdx;
+            triangles[triBase + 6] = leftIdx;
+            triangles[triBase + 7] = nRIdx;
             triangles[triBase + 8] = rightIdx;
 
-            triangles[triBase + 9] = nRIdx;
+            triangles[triBase + 9] = 5;
             triangles[triBase + 10] = rightIdx;
-            triangles[triBase + 11] = 5;
+            triangles[triBase + 11] = nRIdx;
 
             leftIdx = nLIdx;
             rightIdx = nRIdx;
         }
 
         triBase = (3*numTriangles) - 12;
-        triangles[triBase] = 2;
-        triangles[triBase + 1] = 4;
+        triangles[triBase] = 4;
+        triangles[triBase + 1] = 2;
         triangles[triBase + 2] = leftIdx;
 
-        triangles[triBase + 3] = 2;
+        triangles[triBase + 3] = 3;
         triangles[triBase + 4] = leftIdx;
-        triangles[triBase + 5] = 3;
+        triangles[triBase + 5] = 2;
 
-        triangles[triBase + 6] = 3;
-        triangles[triBase + 7] = leftIdx;
+        triangles[triBase + 6] = leftIdx;
+        triangles[triBase + 7] = 3;
         triangles[triBase + 8] = rightIdx;
 
-        triangles[triBase + 9] = 3;
+        triangles[triBase + 9] = 5;
         triangles[triBase + 10] = rightIdx;
-        triangles[triBase + 11] = 5;
+        triangles[triBase + 11] = 3;
 
         state = 'i';
         mesh.name = "Barrier";
         mesh.vertices = vertices;
         mesh.triangles = triangles;
         //mesh.RecalculateNormals();
+        next = Instantiate(template, center, Quaternion.identity) as GameObject;
         next.GetComponent<MeshFilter>().sharedMesh = mesh;
         next.GetComponent<MeshCollider>().sharedMesh = mesh;
-        next.transform.position = center;
 	}
 }

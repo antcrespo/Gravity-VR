@@ -30,7 +30,7 @@ public class SphericalCoordinates
 	}
 
 	// Determine what happen when a limit is reached, repeat or clamp.
-	public bool loopPolar = true, loopElevation = false;
+	public bool loopPolar = false, loopElevation = false;
 
 	private float _radius, _polar, _elevation;
 	private float _minRadius, _maxRadius, _minPolar, _maxPolar, _minElevation, _maxElevation;
@@ -44,7 +44,7 @@ public class SphericalCoordinates
 		_minRadius = minRadius;
 		_maxRadius = maxRadius;
 		_minPolar = minPolar;
-		_maxPolar = maxPolar;
+        _maxPolar = maxPolar;
 		_minElevation = minElevation;
 		_maxElevation = maxElevation;
 

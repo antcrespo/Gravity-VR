@@ -8,10 +8,10 @@ public class Slider : MonoBehaviour {
     public float len;
     public float angularSpeed;
 
-    private bool selected = false;
-    private float curDegreesMoved = 0;
-    private SphericalCoordinates startPosition;
-    private SphericalCoordinates curPosition;
+    public bool selected = false;
+    public float curDegreesMoved = 0;
+    public SphericalCoordinates startPosition;
+    public SphericalCoordinates curPosition;
 
 
 	// Use this for initialization
@@ -41,12 +41,12 @@ public class Slider : MonoBehaviour {
             //Debug.Log(degrees);
             //startPostion.polar - curPosition.polar + degrees;
             curPosition.RotatePolarAngle(degrees);
-            Debug.Log("ENTERED MOVEMENT CONDITION");
-            Debug.Log(curPosition.toCartesian);
+            //Debug.Log("ENTERED MOVEMENT CONDITION");
+            //Debug.Log(curPosition.toCartesian);
             transform.position = curPosition.toCartesian;
             transform.LookAt(Vector3.zero);
 
-        } else if (vertical !=0)
+        } else if (movementDimension == 1 && vertical !=0)
         {
             float degrees = angularSpeed * Time.deltaTime;
             curPosition.RotateElevationAngle(degrees);
