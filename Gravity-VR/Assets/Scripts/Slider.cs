@@ -45,8 +45,8 @@ public class Slider : MonoBehaviour {
             //Debug.Log(curPosition.toCartesian);
             transform.position = curPosition.toCartesian;
             //Debug.Log(transform.rotation);
-            transform.LookAt(Vector3.zero);
-            transform.Rotate(0, 90, 0, Space.Self);
+            //transform.LookAt(Vector3.zero);
+            //transform.Rotate(0, 90, 0, Space.Self);
             //Debug.Log(transform.rotation);
 
         } else if (movementDimension == 1 && vertical !=0)
@@ -55,8 +55,8 @@ public class Slider : MonoBehaviour {
             float degrees = angularSpeed * Time.deltaTime * sign;
             curPosition.RotateElevationAngle(degrees);
             transform.position = curPosition.toCartesian;
-            transform.LookAt(Vector3.zero);
-            transform.Rotate(0, 90, 0, Space.Self);
+            //transform.LookAt(Vector3.zero);
+            //transform.Rotate(0, 90, 0, Space.Self);
         }
 
         
