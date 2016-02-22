@@ -3,6 +3,7 @@
 //http://blog.nobel-joergensen.com/2010/10/22/spherical-coordinates-in-unity/
 //http://en.wikipedia.org/wiki/Spherical_coordinate_system
 //http://wiki.unity3d.com/index.php/SphericalCoordinates
+
 public class SphericalCoordinates
 {
 	public float radius

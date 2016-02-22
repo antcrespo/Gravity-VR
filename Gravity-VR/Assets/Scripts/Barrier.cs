@@ -212,8 +212,8 @@ public class Barrier : MonoBehaviour {
         mesh.vertices = vertices;
         mesh.triangles = triangles;
         //mesh.RecalculateNormals();
-        next = Instantiate(template, center, Quaternion.identity) as GameObject;
-        next.GetComponent<MeshFilter>().sharedMesh = mesh;
-        next.GetComponent<MeshCollider>().sharedMesh = mesh;
+        //next = Instantiate(template, center, Quaternion.identity) as GameObject;
+        GetComponent<MeshFilter>().sharedMesh = mesh;
+        GetComponent<MeshCollider>().sharedMesh = mesh;
 	}
 }

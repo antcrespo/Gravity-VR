@@ -1,41 +1,16 @@
-﻿//C# Example
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
-public class MyWindow : EditorWindow
+public class BarrierEditor : MonoBehaviour
 {
-    string myString = "Hello World";
-    bool groupEnabled;
-    bool myBool = true;
-    int segments = 4;
-    float polarAngle;
-    float elevationAngle;
-    float radius = 20f;
-    float height = 3f;
-    // Add menu item named "My Window" to the Window menu
-    [MenuItem("Window/My Window")]
-    public static void ShowWindow()
-    {
-        //Show existing window instance. If one doesn't exist, make one.
-        EditorWindow.GetWindow(typeof(MyWindow));
-    }
+    public int segments = 4;
+    public float polarAngle;
+    public float elevationAngle;
+    public float radius = 20f;
+    public float height = 3f;
+    public GameObject prefab;
 
-    void OnGUI()
-    {
-        GUILayout.Label("Base Settings", EditorStyles.boldLabel);
-        //myString = EditorGUILayout.TextField("Text Field", myString);
-
-        //groupEnabled = EditorGUILayout.BeginToggleGroup("Optional Settings", groupEnabled);
-        //myBool = EditorGUILayout.Toggle("Toggle", myBool);
-        polarAngle = EditorGUILayout.Slider("Polar Angle", polarAngle, -180, 180);
-        elevationAngle = EditorGUILayout.Slider("Elevation Angle", elevationAngle, -90, 90);
-        radius = EditorGUILayout.FloatField("Radius", radius);
-        height = EditorGUILayout.FloatField("Height", height);
-        segments = EditorGUILayout.IntField("Segments", segments);
-        //EditorGUILayout.EndToggleGroup();
-    }
-
-    private void buildMesh(Mesh mesh)
+    public void BuildWall()
     {
 
         SphericalCoordinates p1 = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, -Mathf.PI, Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
@@ -45,19 +20,19 @@ public class MyWindow : EditorWindow
         int triBase;
         int numVertices = (segments - 1) * 2 + 12;
         int numTriangles = (4 * segments) + 16;
-        float polarDif = polarAngle / 2;
-        float eleDif = elevationAngle / 2f;
+        float polarDif = (polarAngle*Mathf.Deg2Rad) / 2;
+        float eleDif = (elevationAngle*Mathf.Deg2Rad) / 2f;
         //Debug.Log(polarDif);
         p1.SetRotation(-polarDif, eleDif);
         p2.SetRotation(-polarDif, -eleDif);
         p3.SetRotation(polarDif, eleDif);
         p4.SetRotation(polarDif, -eleDif);
-        //Debug.Log(p1.ToString());
+        //.Log(p1.ToString());
         //Debug.Log(p2.ToString());
         //Debug.Log(p3.ToString());
         //Debug.Log(p4.ToString());
-        float polarStep = polarAngle / segments;
-        polarStep = polarStep > 0 ? polarStep - 2 * Mathf.PI : polarStep;
+        float polarStep = (polarAngle * Mathf.Deg2Rad) / segments;
+        //polarStep = polarStep > 0 ? polarStep - 2 * Mathf.PI : polarStep;
 
         float eleStep = 0;//(p1.elevation - p4.elevation) / segments;
         //set the smaller value to 0
@@ -154,9 +129,10 @@ public class MyWindow : EditorWindow
         int rightIdx = 1;
         for (int i = 1; i < segments; i++)
         {
-            SphericalCoordinates newLeft = p1.Rotate(polarStep, i * eleStep);
-            SphericalCoordinates newRight = p2.Rotate(polarStep, i * eleStep);
-
+            SphericalCoordinates newLeft = p1.Rotate(polarStep, eleStep);
+            SphericalCoordinates newRight = p2.Rotate(polarStep, eleStep);
+            Debug.Log(newLeft.ToString());
+            Debug.Log(newRight.ToString());
             Vector3 nRCart = newRight.toCartesian - center;
             Vector3 nLCart = newLeft.toCartesian - center;
 
@@ -205,11 +181,11 @@ public class MyWindow : EditorWindow
         triangles[triBase + 11] = 3;
 
         //state = 'i';
+        Mesh mesh = new Mesh();
         mesh.name = "Barrier";
         mesh.vertices = vertices;
         mesh.triangles = triangles;
         //mesh.RecalculateNormals();
-        Object prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Wall Proto.prefab", typeof(GameObject));
 
         GameObject next = Instantiate(prefab, center, Quaternion.identity) as GameObject;
         next.GetComponent<MeshFilter>().sharedMesh = mesh;
