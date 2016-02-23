@@ -5,7 +5,10 @@ public class Slider : MonoBehaviour {
     //public Vector3 movement;
     public int movementDimension = 0; // 0 = x, 1 = y
     public float radius = 30f;
-    public float len;
+    public float minPolar = -15;
+    public float maxPolar = 15;
+    public float minElevation = -15;
+    public float maxElevation = 15;
     public float angularSpeed = .1f;
 
     public bool selected = false;
@@ -16,11 +19,11 @@ public class Slider : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        startPosition = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, 0, 2 * Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
-        startPosition.loopPolar = true;
+        startPosition = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, minPolar*Mathf.Deg2Rad, maxPolar * Mathf.Deg2Rad, minElevation * Mathf.Deg2Rad, maxElevation * Mathf.Deg2Rad);
+        startPosition.loopPolar = false;
         startPosition.FromCartesian(transform.position);
-        curPosition = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, 0, 2 * Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
-        curPosition.loopPolar = true;
+        curPosition = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, minPolar * Mathf.Deg2Rad, maxPolar * Mathf.Deg2Rad, minElevation * Mathf.Deg2Rad, maxElevation * Mathf.Deg2Rad);
+        curPosition.loopPolar = false;
         curPosition.FromCartesian(transform.position);
     }
 
