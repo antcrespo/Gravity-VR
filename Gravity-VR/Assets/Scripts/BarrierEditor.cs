@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using VolumetricLines;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer), typeof(MeshCollider))]
 public class BarrierEditor : MonoBehaviour
@@ -12,6 +13,8 @@ public class BarrierEditor : MonoBehaviour
     public float elevationAngle;
     public float polarAngle;
     //public GameObject prefab;
+
+    public GameObject edgePrefab;
 
     public void BuildWall()
     {
@@ -197,5 +200,27 @@ public class BarrierEditor : MonoBehaviour
         transform.position = p1.toCartesian;
         GetComponent<MeshFilter>().sharedMesh = mesh;
         GetComponent<MeshCollider>().sharedMesh = mesh;
+    }
+
+    public void CreateGlow(Vector3 topLeft, Vector3 bottomLeft, Vector3 topRight, Vector3 bottomRight)
+    {
+        Vector3 length = topRight - topLeft;
+        Vector3 height = bottomLeft - topLeft;
+
+        GameObject top = (GameObject) Instantiate(edgePrefab, topLeft, Quaternion.Euler(180, 0, 0));
+        top.GetComponent<VolumetricLineBehavior>().EndPos = length;
+
+        GameObject bottom = (GameObject) Instantiate(edgePrefab, bottomLeft, Quaternion.Euler(180, 0, 0));
+        bottom.GetComponent<VolumetricLineBehavior>().EndPos = length;
+
+        GameObject left = (GameObject) Instantiate(edgePrefab, topLeft, Quaternion.Euler(90, 0, 0));
+        left.GetComponent<VolumetricLineBehavior>().EndPos = height;
+
+        GameObject right = (GameObject) Instantiate(edgePrefab, topRight, Quaternion.Euler(90, 0, 0));
+        right.GetComponent<VolumetricLineBehavior>().EndPos = height;
+
+        top.transform.parent = gameObject.transform;
+
+        return;
     }
 }
