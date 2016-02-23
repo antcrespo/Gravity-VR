@@ -212,27 +212,31 @@ public class BarrierEditor : MonoBehaviour
         Vector3 height = bottomLeft - topLeft;
 
         GameObject top = Instantiate(edgePrefab);
+        top.name = "top";
         top.transform.parent = transform;
-        top.transform.position = topLeft;
-        top.transform.rotation = Quaternion.Euler(180, 0, 0);
+        top.transform.localPosition = topLeft;
+        top.transform.localRotation = Quaternion.Euler(180, 0, 0);
         top.GetComponent<VolumetricLineBehavior>().EndPos = length;
 
         GameObject bottom = Instantiate(edgePrefab);
+        bottom.name = "bottom";
         bottom.transform.parent = transform;
-        bottom.transform.position = bottomLeft;
-        bottom.transform.rotation = Quaternion.Euler(180, 0, 0);
+        bottom.transform.localPosition = bottomLeft;
+        bottom.transform.localRotation = Quaternion.Euler(180, 0, 0);
         bottom.GetComponent<VolumetricLineBehavior>().EndPos = length;
 
         GameObject left = Instantiate(edgePrefab);
+        left.name = "left";
         left.transform.parent = transform;
-        left.transform.position = topLeft;
-        left.transform.rotation = Quaternion.Euler(90, 0, 0);
+        left.transform.localPosition = topLeft;
+        left.transform.localRotation = Quaternion.Euler(90, 0, 0);
         left.GetComponent<VolumetricLineBehavior>().EndPos = height;
 
         GameObject right = Instantiate(edgePrefab);
+        right.name = "right";
         right.transform.parent = transform;
-        right.transform.position = topRight;
-        right.transform.rotation = Quaternion.Euler(90, 0, 0);
+        right.transform.localPosition = topRight;
+        right.transform.localRotation = Quaternion.Euler(90, 0, 0);
         right.GetComponent<VolumetricLineBehavior>().EndPos = height;
 
         return;
