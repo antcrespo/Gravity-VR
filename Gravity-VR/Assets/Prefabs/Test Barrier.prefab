@@ -95,6 +95,7 @@ MonoBehaviour:
   height: 2
   elevationAngle: 20
   polarAngle: 30
+  edgePrefab: {fileID: 171566, guid: 42d93e2548e39b749b744b359f989a07, type: 2}
 --- !u!114 &11457206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,7 +113,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: edgePrefab
+      value: 
+      objectReference: {fileID: 171566, guid: 42d93e2548e39b749b744b359f989a07, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 118304}

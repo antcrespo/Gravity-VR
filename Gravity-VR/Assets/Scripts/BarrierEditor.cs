@@ -211,19 +211,29 @@ public class BarrierEditor : MonoBehaviour
         Vector3 length = topRight - topLeft;
         Vector3 height = bottomLeft - topLeft;
 
-        GameObject top = (GameObject) Instantiate(edgePrefab, topLeft, Quaternion.Euler(180, 0, 0));
+        GameObject top = Instantiate(edgePrefab);
+        top.transform.parent = transform;
+        top.transform.position = topLeft;
+        top.transform.rotation = Quaternion.Euler(180, 0, 0);
         top.GetComponent<VolumetricLineBehavior>().EndPos = length;
 
-        GameObject bottom = (GameObject) Instantiate(edgePrefab, bottomLeft, Quaternion.Euler(180, 0, 0));
+        GameObject bottom = Instantiate(edgePrefab);
+        bottom.transform.parent = transform;
+        bottom.transform.position = bottomLeft;
+        bottom.transform.rotation = Quaternion.Euler(180, 0, 0);
         bottom.GetComponent<VolumetricLineBehavior>().EndPos = length;
 
-        GameObject left = (GameObject) Instantiate(edgePrefab, topLeft, Quaternion.Euler(90, 0, 0));
+        GameObject left = Instantiate(edgePrefab);
+        left.transform.parent = transform;
+        left.transform.position = topLeft;
+        left.transform.rotation = Quaternion.Euler(90, 0, 0);
         left.GetComponent<VolumetricLineBehavior>().EndPos = height;
 
-        GameObject right = (GameObject) Instantiate(edgePrefab, topRight, Quaternion.Euler(90, 0, 0));
+        GameObject right = Instantiate(edgePrefab);
+        right.transform.parent = transform;
+        right.transform.position = topRight;
+        right.transform.rotation = Quaternion.Euler(90, 0, 0);
         right.GetComponent<VolumetricLineBehavior>().EndPos = height;
-
-        top.transform.parent = gameObject.transform;
 
         return;
     }
