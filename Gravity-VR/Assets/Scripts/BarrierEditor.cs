@@ -1,14 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer), typeof(MeshCollider))]
 public class BarrierEditor : MonoBehaviour
 {
     public int segments = 4;
-    public float polarAngle;
-    public float elevationAngle;
+    public float polarSize = 20f;
+    public float elevationSize = 10f;
     public float radius = 20f;
     public float height = 3f;
-    public GameObject prefab;
+    public float elevationAngle;
+    public float polarAngle;
+    //public GameObject prefab;
+
+    void Update()
+    {
+        LookAtCenter();
+    }
+
+    [ExecuteInEditMode]
+    public void LookAtCenter()
+    {
+        transform.LookAt(Vector3.zero);
+        //transform.Rotate(0, 90, 0, Space.Self);
+    }
 
     public void BuildWall()
     {
@@ -20,8 +35,8 @@ public class BarrierEditor : MonoBehaviour
         int triBase;
         int numVertices = (segments - 1) * 2 + 12;
         int numTriangles = (4 * segments) + 16;
-        float polarDif = (polarAngle*Mathf.Deg2Rad) / 2;
-        float eleDif = (elevationAngle*Mathf.Deg2Rad) / 2f;
+        float polarDif = (polarSize * Mathf.Deg2Rad) / 2;
+        float eleDif = (elevationSize * Mathf.Deg2Rad) / 2f;
         //Debug.Log(polarDif);
         p1.SetRotation(-polarDif, eleDif);
         p2.SetRotation(-polarDif, -eleDif);
@@ -31,7 +46,7 @@ public class BarrierEditor : MonoBehaviour
         //Debug.Log(p2.ToString());
         //Debug.Log(p3.ToString());
         //Debug.Log(p4.ToString());
-        float polarStep = (polarAngle * Mathf.Deg2Rad) / segments;
+        float polarStep = (polarSize * Mathf.Deg2Rad) / segments;
         //polarStep = polarStep > 0 ? polarStep - 2 * Mathf.PI : polarStep;
 
         float eleStep = 0;//(p1.elevation - p4.elevation) / segments;
@@ -187,8 +202,11 @@ public class BarrierEditor : MonoBehaviour
         mesh.triangles = triangles;
         //mesh.RecalculateNormals();
 
-        GameObject next = Instantiate(prefab, center, Quaternion.identity) as GameObject;
-        next.GetComponent<MeshFilter>().sharedMesh = mesh;
-        next.GetComponent<MeshCollider>().sharedMesh = mesh;
+        //GameObject next = Instantiate(prefab, center, Quaternion.identity) as GameObject;
+        p1.SetRotation(polarAngle * Mathf.Deg2Rad, elevationAngle * Mathf.Deg2Rad);
+        p1.SetRadius(center.magnitude);
+        transform.position = p1.toCartesian;
+        GetComponent<MeshFilter>().sharedMesh = mesh;
+        GetComponent<MeshCollider>().sharedMesh = mesh;
     }
 }
