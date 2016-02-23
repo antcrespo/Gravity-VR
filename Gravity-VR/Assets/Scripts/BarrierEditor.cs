@@ -12,8 +12,7 @@ public class BarrierEditor : MonoBehaviour
     public float height = 3f;
     public float elevationAngle;
     public float polarAngle;
-    //public GameObject prefab;
-
+    private Vector3 topLeft, bottomLeft, topRight, bottomRight;
     public GameObject edgePrefab;
 
     public void BuildWall()
@@ -72,6 +71,10 @@ public class BarrierEditor : MonoBehaviour
             //vertices[i + 6] = vertices[i] + height * norm;
             vertices[i + 6] = vertices[i] - height * (vertices[i] + center).normalized;
         }
+        topLeft = vertices[6];
+        topRight = vertices[7];
+        bottomLeft = vertices[8];
+        bottomRight = vertices[9];
         //top rectangle
         triangles[0] = 10;
         triangles[1] = 6;
@@ -200,9 +203,10 @@ public class BarrierEditor : MonoBehaviour
         transform.position = p1.toCartesian;
         GetComponent<MeshFilter>().sharedMesh = mesh;
         GetComponent<MeshCollider>().sharedMesh = mesh;
+        CreateGlow();
     }
 
-    public void CreateGlow(Vector3 topLeft, Vector3 bottomLeft, Vector3 topRight, Vector3 bottomRight)
+    public void CreateGlow()
     {
         Vector3 length = topRight - topLeft;
         Vector3 height = bottomLeft - topLeft;
