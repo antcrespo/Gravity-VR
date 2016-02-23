@@ -14,6 +14,7 @@ public class BarrierEditor : MonoBehaviour
     public float polarAngle;
     private Vector3 topLeft, bottomLeft, topRight, bottomRight;
     public GameObject edgePrefab;
+    private GameObject top, bottom, left, right;
 
     public void BuildWall()
     {
@@ -211,32 +212,41 @@ public class BarrierEditor : MonoBehaviour
         Vector3 length = topRight - topLeft;
         Vector3 height = bottomLeft - topLeft;
 
-        GameObject top = Instantiate(edgePrefab);
-        top.name = "top";
-        top.transform.parent = transform;
-        top.transform.localPosition = topLeft;
-        top.transform.localRotation = Quaternion.Euler(180, 0, 0);
+
+        if (top == null)
+        {
+            top = Instantiate(edgePrefab);
+            top.name = "top";
+            top.transform.parent = transform;
+
+            bottom = Instantiate(edgePrefab);
+            bottom.name = "bottom";
+            bottom.transform.parent = transform;
+
+            left = Instantiate(edgePrefab);
+            left.name = "left";
+            left.transform.parent = transform;
+
+            right = Instantiate(edgePrefab);
+            right.name = "right";
+            right.transform.parent = transform;
+        }
+
+        
+        top.transform.localPosition = topLeft - .25f * Vector3.right;
+        top.transform.localRotation = Quaternion.identity;
         top.GetComponent<VolumetricLineBehavior>().EndPos = length;
-
-        GameObject bottom = Instantiate(edgePrefab);
-        bottom.name = "bottom";
-        bottom.transform.parent = transform;
-        bottom.transform.localPosition = bottomLeft;
-        bottom.transform.localRotation = Quaternion.Euler(180, 0, 0);
+       
+        bottom.transform.localPosition = bottomLeft - .25f * Vector3.right;
+        bottom.transform.localRotation = Quaternion.identity; 
         bottom.GetComponent<VolumetricLineBehavior>().EndPos = length;
-
-        GameObject left = Instantiate(edgePrefab);
-        left.name = "left";
-        left.transform.parent = transform;
-        left.transform.localPosition = topLeft;
-        left.transform.localRotation = Quaternion.Euler(90, 0, 0);
+       
+        left.transform.localPosition = topLeft - .25f * Vector3.right;
+        left.transform.localRotation = Quaternion.identity;
         left.GetComponent<VolumetricLineBehavior>().EndPos = height;
-
-        GameObject right = Instantiate(edgePrefab);
-        right.name = "right";
-        right.transform.parent = transform;
-        right.transform.localPosition = topRight;
-        right.transform.localRotation = Quaternion.Euler(90, 0, 0);
+       
+        right.transform.localPosition = topRight - .25f * Vector3.right;
+        right.transform.localRotation = Quaternion.identity;
         right.GetComponent<VolumetricLineBehavior>().EndPos = height;
 
         return;
