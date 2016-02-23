@@ -3,10 +3,10 @@ using System.Collections;
 
 public class Slider : MonoBehaviour {
     //public Vector3 movement;
-    public int movementDimension; // 0 = x, 1 = y
-    public float radius = 20f;
+    public int movementDimension = 0; // 0 = x, 1 = y
+    public float radius = 30f;
     public float len;
-    public float angularSpeed;
+    public float angularSpeed = .1f;
 
     public bool selected = false;
     public float curDegreesMoved = 0;
@@ -17,8 +17,10 @@ public class Slider : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         startPosition = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, 0, 2 * Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
+        startPosition.loopPolar = true;
         startPosition.FromCartesian(transform.position);
         curPosition = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, 0, 2 * Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
+        curPosition.loopPolar = true;
         curPosition.FromCartesian(transform.position);
     }
 
@@ -31,7 +33,7 @@ public class Slider : MonoBehaviour {
 
     void ProcessMovement()
     {
-        float horizontal = Input.GetAxis("Horizontal");
+        float horizontal = -Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
         if (movementDimension == 0 && horizontal != 0)

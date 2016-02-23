@@ -13,18 +13,6 @@ public class BarrierEditor : MonoBehaviour
     public float polarAngle;
     //public GameObject prefab;
 
-    void Update()
-    {
-        LookAtCenter();
-    }
-
-    [ExecuteInEditMode]
-    public void LookAtCenter()
-    {
-        transform.LookAt(Vector3.zero);
-        //transform.Rotate(0, 90, 0, Space.Self);
-    }
-
     public void BuildWall()
     {
 
@@ -75,10 +63,11 @@ public class BarrierEditor : MonoBehaviour
         vertices[4] = leftMid - center;
         vertices[5] = rightMid - center;
 
-        Vector3 norm = -center.normalized;// Vector3.Cross ((p1Cart - p2Cart), (p4Cart - p2Cart)).normalized;
+        //Vector3 norm = -center.normalized;// Vector3.Cross ((p1Cart - p2Cart), (p4Cart - p2Cart)).normalized;
         for (int i = 0; i < 6; i++)
         {
-            vertices[i + 6] = vertices[i] + height * norm;
+            //vertices[i + 6] = vertices[i] + height * norm;
+            vertices[i + 6] = vertices[i] - height * (vertices[i] + center).normalized;
         }
         //top rectangle
         triangles[0] = 10;
