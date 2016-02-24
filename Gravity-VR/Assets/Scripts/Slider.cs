@@ -67,8 +67,15 @@ public class Slider : MonoBehaviour {
         
     }
 
-    void OnMouseDown()
+    /*void OnMouseDown()
     {
         selected = !selected;
+    }
+    */
+
+    public void OnPointerClick()
+    {
+        selected = !selected;
+        Debug.Log("CLICK triggered");
     }
 }
