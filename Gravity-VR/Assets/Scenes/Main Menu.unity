@@ -576,14 +576,14 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
-  m_Mesh: {fileID: 4300000, guid: 686b98f1c13ed7644b832b0203dc5c9c, type: 3}
+  m_Mesh: {fileID: 4300000, guid: b58759e5dce06f74fbeaf0f4b1c07a3e, type: 3}
 --- !u!33 &1069285198
 MeshFilter:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1069285193}
-  m_Mesh: {fileID: 4300000, guid: 686b98f1c13ed7644b832b0203dc5c9c, type: 3}
+  m_Mesh: {fileID: 4300000, guid: b58759e5dce06f74fbeaf0f4b1c07a3e, type: 3}
 --- !u!4 &1069285199
 Transform:
   m_ObjectHideFlags: 0
