@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using VolumetricLines;
 
 public class Slider : MonoBehaviour {
     //public Vector3 movement;
@@ -12,7 +13,9 @@ public class Slider : MonoBehaviour {
     public float angularSpeed = .1f;
 
     public bool selected = false;
+    private bool seen = false;
     public float curDegreesMoved = 0;
+    //Color original;
     public SphericalCoordinates startPosition;
     public SphericalCoordinates curPosition;
 
@@ -27,6 +30,17 @@ public class Slider : MonoBehaviour {
         curPosition.FromCartesian(transform.position);
     }
 
+    void Update()
+    {
+        if (Input.GetButtonDown("X")) {
+            //Debug.Log("X pressed");
+            Select();
+        } else if (Input.GetButtonDown("Circle"))
+        {
+            //Debug.Log("Circle pressed");
+            Deselect();
+        }
+    }
     // Update is called once per frame
     void LateUpdate () {
         if (selected)
@@ -49,10 +63,6 @@ public class Slider : MonoBehaviour {
             //Debug.Log("ENTERED MOVEMENT CONDITION");
             //Debug.Log(curPosition.toCartesian);
             transform.position = curPosition.toCartesian;
-            //Debug.Log(transform.rotation);
-            //transform.LookAt(Vector3.zero);
-            //transform.Rotate(0, 90, 0, Space.Self);
-            //Debug.Log(transform.rotation);
 
         } else if (movementDimension == 1 && vertical !=0)
         {
@@ -60,8 +70,6 @@ public class Slider : MonoBehaviour {
             float degrees = angularSpeed * Time.deltaTime * sign;
             curPosition.RotateElevationAngle(degrees);
             transform.position = curPosition.toCartesian;
-            //transform.LookAt(Vector3.zero);
-            //transform.Rotate(0, 90, 0, Space.Self);
         }
 
         
@@ -73,9 +81,39 @@ public class Slider : MonoBehaviour {
     }
     */
 
-    public void OnPointerClick()
+    public void Select()
     {
-        selected = !selected;
-        Debug.Log("CLICK triggered");
+        if (seen)
+        {
+            selected = true;
+            Color color = Color.green;
+            setLineColors(color);
+        }
+    }
+
+    public void Deselect()
+    {
+        selected = false;
+        Color color = seen ? Color.blue : Color.magenta;
+        setLineColors(color);
+    }
+
+    public void OnPointer()
+    {
+        seen = !seen;
+        if (!selected)
+        {
+            Color color = seen ? Color.blue : Color.magenta;
+            setLineColors(color);
+        }
+    }
+
+    private void setLineColors (Color color)
+    {
+        VolumetricLineBehavior[] lines = GetComponentsInChildren<VolumetricLineBehavior>();
+        for (int i = 0; i < lines.Length; i++)
+        {
+            lines[i].LineColor = color;
+        }
     }
 }
