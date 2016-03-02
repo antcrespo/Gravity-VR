@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 496600}
   - 114: {fileID: 11470424}
   m_Layer: 0
-  m_Name: CreateSpiral
+  m_Name: Spiral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,6 +44,7 @@ MonoBehaviour:
     type: 2}
   m_color: {r: 0.78088933, g: 0.42906573, b: 0.9117647, a: 0}
   m_start: 0
+  m_rotations: 3
   m_end: 18.849556
   width: 0.1
   lineWidth: 0.8

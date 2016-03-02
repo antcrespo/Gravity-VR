@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CustomEditor(typeof(BarrierEditor))]
-public class ObjectBuilderEditor : Editor
+public class BarrierBuilderEditor : Editor
 {
 
     public override void OnInspectorGUI()
