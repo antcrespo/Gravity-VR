@@ -40,13 +40,16 @@ public class Slider : MonoBehaviour {
             //Debug.Log("Circle pressed");
             Deselect();
         }
+
+        if (selected)
+            ProcessMovement();
     }
     // Update is called once per frame
-    void LateUpdate () {
+    /*void LateUpdate () {
         if (selected)
             ProcessMovement();
         
-	}
+	}*/
 
     void ProcessMovement()
     {
