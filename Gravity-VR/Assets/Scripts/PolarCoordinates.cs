@@ -104,7 +104,7 @@ public class SphericalCoordinates
 	public SphericalCoordinates RotateElevationAngle(float x) { return Rotate(0f, x); }
 	public SphericalCoordinates Rotate(float newPolar, float newElevation){ return SetRotation( polar + newPolar, elevation + newElevation ); }
 	public SphericalCoordinates SetPolarAngle(float x) { return SetRotation(x, elevation); }
-	public SphericalCoordinates SetElevationAngle(float x) { return SetRotation(x, elevation); }
+	public SphericalCoordinates SetElevationAngle(float x) { return SetRotation(polar, x); }
 	public SphericalCoordinates SetRotation(float newPolar, float newElevation)
 	{
 		polar = newPolar;		
