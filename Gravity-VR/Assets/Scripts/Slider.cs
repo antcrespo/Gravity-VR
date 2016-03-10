@@ -18,7 +18,7 @@ public class Slider : MonoBehaviour {
     //Color original;
     public SphericalCoordinates startPosition;
     public SphericalCoordinates curPosition;
-
+    static GameObject[] sliders;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +28,7 @@ public class Slider : MonoBehaviour {
         curPosition = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, minPolar * Mathf.Deg2Rad, maxPolar * Mathf.Deg2Rad, minElevation * Mathf.Deg2Rad, maxElevation * Mathf.Deg2Rad);
         curPosition.loopPolar = false;
         curPosition.FromCartesian(transform.position);
+        sliders = GameObject.FindGameObjectsWithTag("Slider");
     }
 
     void Update()
@@ -88,6 +89,10 @@ public class Slider : MonoBehaviour {
     {
         if (seen)
         {
+            for (int i = 0; i < sliders.Length; i++)
+            {
+                sliders[i].GetComponent<Slider>().Deselect();
+            }
             selected = true;
             Color color = Color.green;
             setLineColors(color);
