@@ -36,6 +36,7 @@ public class BallMovement : MonoBehaviour {
             Vector3 currentPos = gameObject.transform.position;
 
             SphericalCoordinates sc = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, -Mathf.PI, Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
+            sc.loopPolar = true;
             sc.FromCartesian(currentPos);
 
             if (direction == 0)
