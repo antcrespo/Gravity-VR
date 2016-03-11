@@ -77,7 +77,7 @@ public class Barrier : MonoBehaviour {
         p3Cart = p3.toCartesian;
         p4Cart = p4.toCartesian;
 
-        Vector3[] normals = new Vector3[numVertices];
+        //Vector3[] normals = new Vector3[numVertices];
         Vector3[] vertices = new Vector3[numVertices];
         int[] triangles = new int[3*numTriangles];
         Vector3 leftMid = (p1Cart+ p3Cart)/ 2;

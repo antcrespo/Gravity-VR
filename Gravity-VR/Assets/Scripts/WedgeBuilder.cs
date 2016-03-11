@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿//UNUSED
+using UnityEngine;
 using System.Collections;
 using VolumetricLines;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer), typeof(MeshCollider))]
-public class BarrierEditor : MonoBehaviour
+public class WedgeBuilder : MonoBehaviour
 {
     public int segments = 4;
     public float polarSize = 20f;
@@ -28,7 +29,7 @@ public class BarrierEditor : MonoBehaviour
         int numTriangles = (4 * segments) + 16;
         float polarDif = (polarSize * Mathf.Deg2Rad) / 2;
         float eleDif = (elevationSize * Mathf.Deg2Rad) / 2f;
-
+        
         p1.SetRotation(-polarDif, eleDif);
         p2.SetRotation(-polarDif, -eleDif);
         p3.SetRotation(polarDif, eleDif);
@@ -50,6 +51,14 @@ public class BarrierEditor : MonoBehaviour
         Vector3 leftMid = (p1Cart + p3Cart) / 2;
         Vector3 rightMid = (p2Cart + p4Cart) / 2;
         Vector3 center = (leftMid + rightMid) / 2;
+
+        Vector3 angles = new Vector3(0, 0, 45);
+        p1Cart = rotatePoint(p1Cart, center, angles);
+        p2Cart = rotatePoint(p2Cart, center, angles);
+        p3Cart = rotatePoint(p3Cart, center, angles);
+        p4Cart = rotatePoint(p4Cart, center, angles);
+        leftMid = (p1Cart + p3Cart) / 2;
+        rightMid = (p2Cart + p4Cart) / 2;
         //int v = 0;
         vertices[0] = p1Cart - center;
         vertices[1] = p2Cart - center;
@@ -63,7 +72,7 @@ public class BarrierEditor : MonoBehaviour
         for (int i = 0; i < 6; i++)
         {
             //vertices[i + 6] = vertices[i] + height * norm;
-            vertices[i + 6] = vertices[i+12] = vertices[i] - height * (vertices[i] + center).normalized;
+            vertices[i + 6] = vertices[i + 12] = vertices[i] - height * (vertices[i] + center).normalized;
             //normals[i + 6] = verticalNorm;
         }
         topLeft = vertices[6];
@@ -159,11 +168,11 @@ public class BarrierEditor : MonoBehaviour
             Vector3 nLCart = newLeft.toCartesian - center;
 
             int nLIdx = 4 * i + 26;
-            int nRIdx = nLIdx+1;
+            int nRIdx = nLIdx + 1;
             int bLIdx = nRIdx + 1;
             int bRIdx = bLIdx + 1;
             vertices[nLIdx] = vertices[bLIdx] = nLCart;
-            vertices[nRIdx] = vertices [bRIdx] = nRCart;
+            vertices[nRIdx] = vertices[bRIdx] = nRCart;
 
             triBase = 12 * i + 36;
 
@@ -249,23 +258,30 @@ public class BarrierEditor : MonoBehaviour
             right.transform.parent = transform;
         }
 
-        
+
         top.transform.localPosition = topLeft - .25f * Vector3.right;
         top.transform.localRotation = Quaternion.identity;
         top.GetComponent<VolumetricLineBehavior>().EndPos = length;
-       
+
         bottom.transform.localPosition = bottomLeft - .25f * Vector3.right;
-        bottom.transform.localRotation = Quaternion.identity; 
+        bottom.transform.localRotation = Quaternion.identity;
         bottom.GetComponent<VolumetricLineBehavior>().EndPos = length;
-       
+
         left.transform.localPosition = topLeft - .25f * Vector3.right;
         left.transform.localRotation = Quaternion.identity;
         left.GetComponent<VolumetricLineBehavior>().EndPos = height;
-       
+
         right.transform.localPosition = topRight - .25f * Vector3.right;
         right.transform.localRotation = Quaternion.identity;
         right.GetComponent<VolumetricLineBehavior>().EndPos = height;
 
         return;
+    }
+
+    private Vector3 rotatePoint(Vector3 point, Vector3 pivot, Vector3 angles)
+    {
+        Vector3 dir = point - pivot;
+        dir = Quaternion.Euler(angles) * dir;
+        return dir + pivot;
     }
 }

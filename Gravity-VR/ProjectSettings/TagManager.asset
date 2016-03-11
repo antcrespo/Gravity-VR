@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Info
   - Slider
+  - Wedge
   layers:
   - Default
   - TransparentFX
