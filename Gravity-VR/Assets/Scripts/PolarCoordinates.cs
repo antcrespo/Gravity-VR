@@ -91,10 +91,10 @@ public class SphericalCoordinates
 			cartesianCoordinate.x = Mathf.Epsilon;
 		radius = cartesianCoordinate.magnitude;
 
-		polar = Mathf.Atan(cartesianCoordinate.z / cartesianCoordinate.x);
-
-		if( cartesianCoordinate.x < 0f )
-			polar += Mathf.PI;
+        //polar = Mathf.Atan(cartesianCoordinate.z / cartesianCoordinate.x);
+        polar = Mathf.Atan2(cartesianCoordinate.z, cartesianCoordinate.x);
+		//if( cartesianCoordinate.x < 0f )
+			//polar += Mathf.PI;
 		elevation = Mathf.Asin(cartesianCoordinate.y / radius);
 
 		return this;

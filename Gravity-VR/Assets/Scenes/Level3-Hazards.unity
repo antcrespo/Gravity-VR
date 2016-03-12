@@ -2626,7 +2626,6 @@ GameObject:
   - 23: {fileID: 1752194739}
   - 54: {fileID: 1752194738}
   - 114: {fileID: 1752194737}
-  - 114: {fileID: 1752194736}
   - 114: {fileID: 1752194735}
   m_Layer: 0
   m_Name: Anti-Player
@@ -2648,18 +2647,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 199464, guid: f2917761e68d5b843a8b8e5bc54b3b6d, type: 2}
   InstantiationTimer: 1
---- !u!114 &1752194736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1752194734}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92aa7637fb574c045ac880e7088bfe76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 30
+  movementDimension: 0
+  maxPolar: 120
+  minPolar: 90
+  maxElevation: -10
+  minElevation: -10
+  angularSpeed: 0.3
+  radius: 28.5
 --- !u!114 &1752194737
 MonoBehaviour:
   m_ObjectHideFlags: 0
