@@ -14,7 +14,7 @@ public class Slider : MonoBehaviour {
 
     public bool selected = false;
     private bool seen = false;
-    private int sign;
+    private int sign = 0;
     //public float curDegreesMoved = 0;
     //Color original;
     public SphericalCoordinates startPosition;

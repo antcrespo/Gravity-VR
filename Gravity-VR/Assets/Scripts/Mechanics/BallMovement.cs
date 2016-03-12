@@ -21,24 +21,31 @@ public class BallMovement : MonoBehaviour {
             Slider s = collision.gameObject.GetComponent<Slider>();
             if (s != null)
             {
-                direction = s.movementDimension;
-                speed = s.angularSpeed;
-                sign = s.getSign();
+                int tsign = s.getSign();
+                if (tsign == 0)
+                {
+                    sign *= -1;
+                } else
+                {
+                    sign = tsign;
+                    direction = s.movementDimension;
+                    speed = s.angularSpeed;
+                }
             }
         } else if (collision.gameObject.CompareTag("Wedge"))
         {
-            Debug.Log("Hit Wedge");
+            //Debug.Log("Hit Wedge");
             WedgeBehavior wb = collision.gameObject.GetComponentInParent<WedgeBehavior>();
             if (collision.collider.Equals(wb.bottom))
             {
-                sign = wb.sign;
+                sign *= wb.sign;
 
                 direction = direction == 1 ? 0 : 1;
-                Debug.Log("Bottom");
+                //Debug.Log("Bottom");
             } else
             {
                 sign = -sign;
-                Debug.Log("side");
+                //Debug.Log("side");
             }
 
         } 
