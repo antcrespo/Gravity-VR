@@ -8,7 +8,7 @@ public class BallMovement : MonoBehaviour {
     private float polarAngle;
     private bool activeAdjustment;
     private int direction;
-
+    private int sign;
 	// Use this for initialization
 	void Start () {
         activeAdjustment = false;
@@ -22,11 +22,23 @@ public class BallMovement : MonoBehaviour {
             if (s != null)
             {
                 direction = s.movementDimension;
-                speed = -s.angularSpeed;
+                speed = s.angularSpeed;
+                sign = s.getSign();
             }
         } else if (collision.gameObject.CompareTag("Wedge"))
         {
+            //Debug.Log("Hit Wedge");
             direction = direction == 1 ? 0 : 1;
+            if (collision.collider.Equals(collision.gameObject.GetComponent<WedgeBehavior>().top))
+            {
+                sign = 1;
+                //Debug.Log("Top");
+            } else
+            {
+                sign = -1;
+                //Debug.Log("Bottom");
+            }
+
         }
 
         Vector3 startPos = gameObject.transform.position;
@@ -47,7 +59,7 @@ public class BallMovement : MonoBehaviour {
             sc.loopPolar = true;
             sc.FromCartesian(currentPos);
             //sc.SetRadius(radius);
-            float change = speed * Time.deltaTime;
+            float change = sign * speed * Time.deltaTime;
             if (direction == 0)
             {
                 sc.RotatePolarAngle(change);

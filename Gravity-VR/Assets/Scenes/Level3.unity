@@ -718,7 +718,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11494114, guid: df43a3a18e95e3248b8a8721e4d334c9, type: 2}
       propertyPath: angularSpeed
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 11494114, guid: df43a3a18e95e3248b8a8721e4d334c9, type: 2}
       propertyPath: minElevation
@@ -3416,6 +3416,10 @@ Prefab:
     - target: {fileID: 118304, guid: df43a3a18e95e3248b8a8721e4d334c9, type: 2}
       propertyPath: m_TagString
       value: Wedge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436424, guid: df43a3a18e95e3248b8a8721e4d334c9, type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11457206, guid: df43a3a18e95e3248b8a8721e4d334c9, type: 2}

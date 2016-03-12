@@ -14,7 +14,8 @@ public class Slider : MonoBehaviour {
 
     public bool selected = false;
     private bool seen = false;
-    public float curDegreesMoved = 0;
+    private int sign;
+    //public float curDegreesMoved = 0;
     //Color original;
     public SphericalCoordinates startPosition;
     public SphericalCoordinates curPosition;
@@ -59,7 +60,7 @@ public class Slider : MonoBehaviour {
 
         if (movementDimension == 0 && horizontal != 0)
         {
-            int sign = horizontal > 0 ? 1 : -1;
+            sign = horizontal > 0 ? 1 : -1;
             float degrees = angularSpeed * Time.deltaTime * sign;
             //Debug.Log(degrees);
             //startPostion.polar - curPosition.polar + degrees;
@@ -70,10 +71,13 @@ public class Slider : MonoBehaviour {
 
         } else if (movementDimension == 1 && vertical !=0)
         {
-            int sign = vertical > 0 ? 1 : -1;
+            sign = vertical > 0 ? 1 : -1;
             float degrees = angularSpeed * Time.deltaTime * sign;
             curPosition.RotateElevationAngle(degrees);
             transform.position = curPosition.toCartesian;
+        } else
+        {
+            sign = 0;
         }
 
         
@@ -123,5 +127,10 @@ public class Slider : MonoBehaviour {
         {
             lines[i].LineColor = color;
         }
+    }
+
+    public int getSign()
+    {
+        return sign;
     }
 }
