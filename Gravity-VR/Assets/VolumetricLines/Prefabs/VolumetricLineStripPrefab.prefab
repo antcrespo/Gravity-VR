@@ -74,13 +74,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9efc33befc68374c889396a73a00a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_dynamic: 0
-  m_setMaterialColor: 0
-  m_lineColor:
-    r: 1
-    g: 0.7241379
-    b: 0
-    a: 1
+  m_setLineColorAtStart: 0
+  m_lineColor: {r: 1, g: 0.7241379, b: 0, a: 1}
+  m_lineWidth: 0
   m_lineVertices:
   - {x: 70, y: 80, z: 0}
   - {x: 144.4, y: 159.9, z: 0}

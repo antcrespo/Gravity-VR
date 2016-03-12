@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using VolumetricLines;
 
 public class Hazards : MonoBehaviour {
     public GameObject shotPrefab;
-    public float InstantiationTimer = 1f;
-    public int movementDimension;
+    public float shotSpeed = 6f;
+    public float shotFreqeuncy = 1f;
+    public float shotLife = 2f;
+
+    public int movementDimension = 0;
     public float maxPolar;
     public float minPolar;
     public float maxElevation;
@@ -18,57 +22,76 @@ public class Hazards : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        copy = InstantiationTimer;
+        copy = shotFreqeuncy;
         minPolar = minPolar *Mathf.Deg2Rad;
         maxPolar = maxPolar *Mathf.Deg2Rad;
         minElevation = minElevation * Mathf.Deg2Rad;
         maxElevation *= Mathf.Deg2Rad;
 
         curPos = new SphericalCoordinates(radius, 0, 0, 1, radius, minPolar, maxPolar, minElevation, maxElevation);
-        //curPos.FromCartesian(gameObject.transform.position);
         sign = 1;
-        Debug.Log(transform.position);
-        curPos.FromCartesian(transform.position);
-        Debug.Log(curPos.toCartesian);
-        //Debug.Log(minPolar);
-        //Debug.Log(maxPolar);
-        //Debug.Log(curPos.ToString());
     }
 
     // Update is called once per frame
     void Update () {
-        InstantiationTimer -= Time.deltaTime;
-        if (InstantiationTimer <= 0)
+        shotFreqeuncy -= Time.deltaTime;
+        if (shotFreqeuncy <= 0)
         {
             GameObject shot = Instantiate(shotPrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
             LaserBehaivor b = shot.GetComponent<LaserBehaivor>();
-            b.direction = 0;
-            b.sign = 1;
-            b.radius = radius - 1;
-            InstantiationTimer = copy;
+            b.direction = movementDimension;
+            b.sign = sign;
+            b.radius = radius - .5f;
+            b.angularSpeed = shotSpeed;
+            b.lifetime = shotLife;
+
+            VolumetricLineBehavior shotLine = shot.GetComponent<VolumetricLineBehavior>();
+            if (movementDimension == 0)
+                shotLine.EndPos = Vector3.right;
+            else
+                shotLine.EndPos = Vector3.up;
+
+            shotFreqeuncy = copy;
         }
 
+        if (movementDimension != 2)
+            ProcessMovement();
+    }
+
+    private void ProcessMovement()
+    {
         curPos.FromCartesian(gameObject.transform.position);
-        Debug.Log(curPos.ToString());
 
-        if (curPos.polar >= maxPolar)
+        if (movementDimension == 0)
         {
-            sign = -1;
-            //Debug.Log("sign changed to -1");
+            if (curPos.polar >= maxPolar)
+            {
+                sign = -1;
+            }
+            else if (curPos.polar <= minPolar)
+            {
+                sign = 1;
+            }
+
+            float radians = angularSpeed * Time.deltaTime * sign;
+            curPos.RotatePolarAngle(radians);
         }
-        else if( curPos.polar <= minPolar)
+        else if (movementDimension == 1)
         {
-            sign = 1;
-            //Debug.Log("sign changed to 1");
+            if (curPos.elevation >= maxElevation)
+            {
+                sign = -1;
+            }
+            else if (curPos.elevation <= minElevation)
+            {
+                sign = 1;
+            }
+
+            float radians = angularSpeed * Time.deltaTime * sign;
+            curPos.RotateElevationAngle(radians);
         }
 
-        float radians = angularSpeed * Time.deltaTime * sign;
-        Debug.Log(radians);
-        curPos.RotatePolarAngle(radians);
-        Debug.Log(curPos.ToString());
-        //Debug.Log(transform.position);
         transform.position = curPos.toCartesian;
-        //Debug.Log(transform.position);
     }
 
 

@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11445858}
   - 23: {fileID: 2300378}
   m_Layer: 0
-  m_Name: VolumetricLinePrefab
+  m_Name: VolumetricLinePrefab-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

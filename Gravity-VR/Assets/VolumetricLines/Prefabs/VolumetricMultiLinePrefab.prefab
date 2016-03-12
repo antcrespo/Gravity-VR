@@ -39,7 +39,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337d0041a7dd7564e81c5f906c45230f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_dynamic: 0
   m_volumetricLinePrefab: {fileID: 100000, guid: 11530f2b0a0cd2442949827ecbb622f2,
     type: 2}
   m_lineVertices:
