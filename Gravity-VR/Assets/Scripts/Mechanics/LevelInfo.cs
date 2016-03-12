@@ -6,7 +6,21 @@ public class LevelInfo : MonoBehaviour {
 
     public int level;
     public int nextLevel;
-	// Use this for initialization
+    public float restartTimer = 3f;
+    private float wait = 0;
+
+    void Update()
+    {
+        if (Input.GetButton("Options"))
+        {
+            wait += Time.deltaTime;
+            if (wait >= restartTimer)
+                Restart();
+        } else
+        {
+            wait = 0f;
+        }
+    }
 	public void LoadNext()
     {
         Debug.Log("Loading next");

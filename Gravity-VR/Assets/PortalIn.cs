@@ -16,7 +16,7 @@ public class PortalIn : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("PortalIn Enter");
+        //Debug.Log("PortalIn Enter");
         if (other.CompareTag("Player"))
             //other.gameObject.GetComponent<Rigidbody>().MovePosition(outPortal.transform.position);
             other.transform.position = outPortal.transform.position;

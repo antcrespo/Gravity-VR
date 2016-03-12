@@ -174,7 +174,6 @@ MonoBehaviour:
   maxElevation: 15
   angularSpeed: 0.1
   selected: 0
-  curDegreesMoved: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

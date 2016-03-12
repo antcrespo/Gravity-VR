@@ -43,11 +43,13 @@ MonoBehaviour:
   m_volumetricLineStripMaterial: {fileID: 2100000, guid: 22996b8a746cdaa4a87e4f7efe177c35,
     type: 2}
   m_color: {r: 0.78088933, g: 0.42906573, b: 0.9117647, a: 0}
-  m_start: 0
   m_rotations: 3
-  m_end: 18.849556
   width: 0.1
   lineWidth: 0.8
+  m_offset: 0.01
+  polar: 0
+  elevation: 0
+  isSelected: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
