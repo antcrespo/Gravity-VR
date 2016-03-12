@@ -79,9 +79,9 @@ public class Spiral : MonoBehaviour
         volLineStrip.LineWidth = lineWidth;
 
 
-        float dist = Mathf.Sqrt(900 - Mathf.Pow(radius, 2)) - m_offset;
-        SphericalCoordinates sc = new SphericalCoordinates(dist, polar*Mathf.Deg2Rad, elevation*Mathf.Deg2Rad, 1, 30.3f, -Mathf.PI, Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
-        Vector3 position = sc.toCartesian;
+        //float dist = Mathf.Sqrt(900 - Mathf.Pow(radius, 2)) - m_offset;
+        //SphericalCoordinates sc = new SphericalCoordinates(dist, polar*Mathf.Deg2Rad, elevation*Mathf.Deg2Rad, 1, 30.3f, -Mathf.PI, Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
+        //Vector3 position = sc.toCartesian;
 
 
         var lineVertices = new Vector3[m_numVertices];
@@ -96,7 +96,7 @@ public class Spiral : MonoBehaviour
         volLineStrip.UpdateLineVertices(lineVertices);
 
         
-        transform.position = position;
+        //transform.position = position;
     }
 
     public void Grow()
