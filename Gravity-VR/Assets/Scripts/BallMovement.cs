@@ -27,16 +27,18 @@ public class BallMovement : MonoBehaviour {
             }
         } else if (collision.gameObject.CompareTag("Wedge"))
         {
-            //Debug.Log("Hit Wedge");
-            direction = direction == 1 ? 0 : 1;
-            if (collision.collider.Equals(collision.gameObject.GetComponent<WedgeBehavior>().top))
+            Debug.Log("Hit Wedge");
+            WedgeBehavior wb = collision.gameObject.GetComponentInParent<WedgeBehavior>();
+            if (collision.collider.Equals(wb.bottom))
             {
-                sign = 1;
-                //Debug.Log("Top");
+                sign = wb.sign;
+
+                direction = direction == 1 ? 0 : 1;
+                Debug.Log("Bottom");
             } else
             {
-                sign = -1;
-                //Debug.Log("Bottom");
+                sign = -sign;
+                Debug.Log("side");
             }
 
         }

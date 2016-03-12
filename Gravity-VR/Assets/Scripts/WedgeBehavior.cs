@@ -3,8 +3,8 @@ using System.Collections;
 
 public class WedgeBehavior : MonoBehaviour {
 
-    public BoxCollider top;
     public BoxCollider bottom;
+    public int sign;
 	// Use this for initialization
 	void Start () {
 	
