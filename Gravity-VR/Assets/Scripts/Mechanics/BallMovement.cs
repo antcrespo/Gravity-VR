@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class BallMovement : MonoBehaviour {
-    public float radius;
+    public float radius = 28.5f;
     private float speed = 0;
     private float elevationAngle;
     private float polarAngle;
