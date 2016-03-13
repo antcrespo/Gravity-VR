@@ -743,11 +743,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11494114, guid: df43a3a18e95e3248b8a8721e4d334c9, type: 2}
       propertyPath: angularSpeed
-      value: 1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6436424, guid: df43a3a18e95e3248b8a8721e4d334c9, type: 2}
       propertyPath: m_Material
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11494114, guid: df43a3a18e95e3248b8a8721e4d334c9, type: 2}
+      propertyPath: selected
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df43a3a18e95e3248b8a8721e4d334c9, type: 2}
@@ -985,7 +989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92aa7637fb574c045ac880e7088bfe76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 30
+  radius: 28.5
 --- !u!1 &425603158 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 118304, guid: df43a3a18e95e3248b8a8721e4d334c9, type: 2}
@@ -1489,15 +1493,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 488516, guid: eacbd299b93cea04da333edc700d7257, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.8737874
+      value: -4.9489737
       objectReference: {fileID: 0}
     - target: {fileID: 488516, guid: eacbd299b93cea04da333edc700d7257, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4.948973
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 488516, guid: eacbd299b93cea04da333edc700d7257, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 27.64062
+      value: 28.06702
       objectReference: {fileID: 0}
     - target: {fileID: 488516, guid: eacbd299b93cea04da333edc700d7257, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1518,6 +1522,26 @@ Prefab:
     - target: {fileID: 488516, guid: eacbd299b93cea04da333edc700d7257, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11452206, guid: eacbd299b93cea04da333edc700d7257, type: 2}
+      propertyPath: movementDimension
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11414102, guid: eacbd299b93cea04da333edc700d7257, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11414102, guid: eacbd299b93cea04da333edc700d7257, type: 2}
+      propertyPath: elevationAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11452206, guid: eacbd299b93cea04da333edc700d7257, type: 2}
+      propertyPath: maxElevation
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11452206, guid: eacbd299b93cea04da333edc700d7257, type: 2}
+      propertyPath: minElevation
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eacbd299b93cea04da333edc700d7257, type: 2}
@@ -2684,6 +2708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   nextLevel: 0
+  restartTimer: 3
 --- !u!4 &1768239266
 Transform:
   m_ObjectHideFlags: 0

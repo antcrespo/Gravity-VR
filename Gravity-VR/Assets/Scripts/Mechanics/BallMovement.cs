@@ -41,7 +41,7 @@ public class BallMovement : MonoBehaviour {
                 Debug.Log("side");
             }
 
-        }
+        } 
 
         Vector3 startPos = gameObject.transform.position;
         SphericalCoordinates sc = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, -Mathf.PI, Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
@@ -50,6 +50,18 @@ public class BallMovement : MonoBehaviour {
         polarAngle = sc.polar;
         activeAdjustment = true;
     }
+
+
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("LaserShot"))
+        {
+            Debug.Log("Hit Shot");
+            GameObject levelInfo = GameObject.FindGameObjectsWithTag("Info")[0];
+            levelInfo.GetComponent<LevelInfo>().Restart();
+        }
+    }
+
 
     void Update()
     {

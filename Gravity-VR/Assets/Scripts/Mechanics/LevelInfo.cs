@@ -27,7 +27,7 @@ public class LevelInfo : MonoBehaviour {
         SceneManager.LoadScene(nextLevel);
     }
 	
-    private void Restart()
+    public void Restart()
     {
         SceneManager.LoadScene(level);
     }
