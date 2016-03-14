@@ -35,6 +35,7 @@ public class WedgeBehavior : MonoBehaviour {
         if (seen)
         {
             transform.rotation = transform.rotation * Quaternion.Euler(0f, 0f, 90f);
+            sign *= -1;
         }
     }
 

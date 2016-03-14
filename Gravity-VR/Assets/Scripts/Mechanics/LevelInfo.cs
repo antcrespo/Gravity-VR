@@ -8,27 +8,42 @@ public class LevelInfo : MonoBehaviour {
     public int nextLevel;
     public float restartTimer = 3f;
     private float wait = 0;
+    private int toLoad;
 
+    private bool loading = false;
     void Update()
     {
         if (Input.GetButton("Options"))
         {
             wait += Time.deltaTime;
             if (wait >= restartTimer)
-                Restart();
-        } else
+                SceneManager.LoadSceneAsync(level);
+        } 
+        else if (loading)
+        {
+            wait += Time.deltaTime;
+            if (wait >= .5)
+            {
+                SceneManager.LoadSceneAsync(toLoad);
+            }
+        }
+        else
         {
             wait = 0f;
         }
     }
 	public void LoadNext()
     {
-        Debug.Log("Loading next");
-        SceneManager.LoadScene(nextLevel);
+        //Debug.Log("Loading next");
+        //SceneManager.LoadSceneAsync(nextLevel);
+        toLoad = nextLevel;
+        loading = true;
     }
 	
     public void Restart()
     {
-        SceneManager.LoadScene(level);
+        //SceneManager.LoadSceneAsync(level);
+        toLoad = level;
+        loading = true;
     }
 }

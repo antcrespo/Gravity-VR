@@ -13,6 +13,7 @@ public class LevelEnd : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            GetComponent<AudioSource>().Play();
             info.LoadNext();
         }
     }

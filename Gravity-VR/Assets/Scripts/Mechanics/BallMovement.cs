@@ -32,6 +32,8 @@ public class BallMovement : MonoBehaviour {
                     speed = s.angularSpeed;
                 }
             }
+
+            playSound();
         } else if (collision.gameObject.CompareTag("Wedge"))
         {
             //Debug.Log("Hit Wedge");
@@ -48,6 +50,7 @@ public class BallMovement : MonoBehaviour {
                 //Debug.Log("side");
             }
 
+            playSound();
         } 
 
         Vector3 startPos = gameObject.transform.position;
@@ -56,6 +59,7 @@ public class BallMovement : MonoBehaviour {
         elevationAngle = sc.elevation;
         polarAngle = sc.polar;
         activeAdjustment = true;
+
     }
 
 
@@ -63,7 +67,8 @@ public class BallMovement : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("LaserShot"))
         {
-            Debug.Log("Hit Shot");
+            collision.gameObject.GetComponent<AudioSource>().Play();
+            //Debug.Log("Hit Shot");
             GameObject levelInfo = GameObject.FindGameObjectsWithTag("Info")[0];
             levelInfo.GetComponent<LevelInfo>().Restart();
         }
@@ -91,5 +96,11 @@ public class BallMovement : MonoBehaviour {
                 gameObject.transform.position = sc.toCartesian;
             }
         }
+    }
+
+    void playSound()
+    {
+        AudioSource source = GetComponent<AudioSource>();
+        source.Play();
     }
 }
