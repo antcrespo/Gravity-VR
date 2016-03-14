@@ -2855,7 +2855,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 118304, guid: df43a3a18e95e3248b8a8721e4d334c9, type: 2}
       propertyPath: m_TagString
-      value: Untagged
+      value: Barrier
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11471152, guid: df43a3a18e95e3248b8a8721e4d334c9, type: 2}
