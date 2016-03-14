@@ -10,6 +10,7 @@ TagManager:
   - LaserShot
   - BallCam
   - Head
+  - Barrier
   layers:
   - Default
   - TransparentFX

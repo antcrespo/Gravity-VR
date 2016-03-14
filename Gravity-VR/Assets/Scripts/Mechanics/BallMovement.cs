@@ -56,7 +56,13 @@ public class BallMovement : MonoBehaviour {
             }
 
             playSound();
-        } 
+        }
+        else if (collision.gameObject.CompareTag("Barrier"))
+        {
+            sign = 0;
+
+            playSound();
+        }
 
         Vector3 startPos = gameObject.transform.position;
         SphericalCoordinates sc = new SphericalCoordinates(radius, 0, 0, 1, radius + .3f, -Mathf.PI, Mathf.PI, -Mathf.PI / 2, Mathf.PI / 2);
