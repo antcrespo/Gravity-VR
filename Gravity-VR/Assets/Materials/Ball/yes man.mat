@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: yes man
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _SPECGLOSSMAP
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 1b2a7dd5c9693fe418b28df7e8886d92, type: 3}
+          m_Texture: {fileID: 2800000, guid: 57da9f5018695df44b98425ce77e30aa, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -34,6 +34,13 @@ Material:
           name: _DetailNormalMap
         second:
           m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Tex
+        second:
+          m_Texture: {fileID: 8900000, guid: 483f89d5faf876344898a40f7bab46be, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -78,6 +85,55 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SpecGlossMap
+        second:
+          m_Texture: {fileID: 2800000, guid: 6b3c39c6b40427e41a83dc1c3dae8d33, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _FrontTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BackTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _LeftTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _RightTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _UpTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DownTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -93,6 +149,14 @@ Material:
         second: 0.5
       data:
         first:
+          name: _Shininess
+        second: 0.078125
+      data:
+        first:
+          name: _Exposure
+        second: 1
+      data:
+        first:
           name: _Parallax
         second: 0.02
       data:
@@ -102,7 +166,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.5
+        second: 0.661
       data:
         first:
           name: _BumpScale
@@ -126,6 +190,10 @@ Material:
       data:
         first:
           name: _Metallic
+        second: 1
+      data:
+        first:
+          name: _Rotation
         second: 0
     m_Colors:
       data:
@@ -136,3 +204,11 @@ Material:
         first:
           name: _Color
         second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _Tint
+        second: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
