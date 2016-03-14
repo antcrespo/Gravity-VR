@@ -8,6 +8,8 @@ TagManager:
   - Slider
   - Wedge
   - LaserShot
+  - BallCam
+  - Head
   layers:
   - Default
   - TransparentFX

@@ -9,10 +9,15 @@ public class BallMovement : MonoBehaviour {
     private bool activeAdjustment;
     private int direction;
     private int sign;
+    private GameObject ballCam;
+    private GameObject mainCam;
+
 	// Use this for initialization
 	void Start () {
         activeAdjustment = false;
-	}
+        ballCam = GameObject.FindGameObjectWithTag("BallCam");
+        mainCam = GameObject.FindGameObjectWithTag("Head");
+    }
 
     void OnCollisionEnter(Collision collision)
     {
@@ -95,6 +100,16 @@ public class BallMovement : MonoBehaviour {
                 sc.RotateElevationAngle(change);
                 gameObject.transform.position = sc.toCartesian;
             }
+        }
+        if (Input.GetButton("R1"))
+        {
+            mainCam.SetActive(false);
+            ballCam.SetActive(true);
+        }
+        else
+        {
+            mainCam.SetActive(true);
+            ballCam.SetActive(false);
         }
     }
 
