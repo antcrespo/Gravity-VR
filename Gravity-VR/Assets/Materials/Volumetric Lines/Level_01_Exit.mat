@@ -30,7 +30,7 @@ Material:
       data:
         first:
           name: _LineScale
-        second: 0.66666657
+        second: 0.66666687
       data:
         first:
           name: _LightSaberFactor
