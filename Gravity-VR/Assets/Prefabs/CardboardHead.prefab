@@ -31,6 +31,7 @@ GameObject:
   - 114: {fileID: 11458674}
   - 114: {fileID: 11464116}
   - 114: {fileID: 11471148}
+  - 114: {fileID: 11432996}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -256,6 +257,19 @@ MonoBehaviour:
   toggleCullingMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &11432996
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4c480307f0a9a42a48f294d2a61362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resWidth: 1920
+  resHeight: 1080
 --- !u!114 &11439468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -368,6 +382,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Head
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: resWidth
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: resHeight
+      value: 1080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

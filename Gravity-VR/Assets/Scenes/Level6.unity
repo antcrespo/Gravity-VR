@@ -320,10 +320,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 444768, guid: 15bae5b3d4a8ffb4d9f38603b490be34, type: 2}
       propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11450342, guid: 15bae5b3d4a8ffb4d9f38603b490be34, type: 2}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -661,13 +657,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 444340, guid: 196e9f1f5ea692d4bb4166a215515bd2, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11439840, guid: 196e9f1f5ea692d4bb4166a215515bd2, type: 2}
       propertyPath: level
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 196e9f1f5ea692d4bb4166a215515bd2, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &997013451 stripped
@@ -1026,7 +1023,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 436450, guid: df43a3a18e95e3248b8a8721e4d334c9, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11447114, guid: df43a3a18e95e3248b8a8721e4d334c9, type: 2}
       propertyPath: elevationAngle

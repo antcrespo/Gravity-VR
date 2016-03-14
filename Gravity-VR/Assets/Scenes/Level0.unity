@@ -1068,10 +1068,6 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
---- !u!4 &557392656 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 444768, guid: 15bae5b3d4a8ffb4d9f38603b490be34, type: 2}
-  m_PrefabInternal: {fileID: 1204326924}
 --- !u!1 &567672808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,24 +1317,6 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 436450, guid: df43a3a18e95e3248b8a8721e4d334c9, type: 2}
   m_PrefabInternal: {fileID: 340321306}
---- !u!1 &803317798 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100006, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-  m_PrefabInternal: {fileID: 884666627}
---- !u!114 &803317800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 803317798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -768656878, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EventMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!1 &805042601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,80 +1378,6 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!1001 &884666627
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 557392656}
-    m_Modifications:
-    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-      propertyPath: m_TagString
-      value: BallCam
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-      propertyPath: m_TagString
-      value: MainCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-      propertyPath: m_Name
-      value: CardboardHead (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 8100000, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 691bf3e71b387435bb6304e28d671b2f, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &980181191
 GameObject:
   m_ObjectHideFlags: 0
