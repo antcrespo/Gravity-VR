@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Level_00_Exit
+  m_Name: Level_03_Exit
   m_Shader: {fileID: 4800000, guid: 89815bbc9fb99b744887dfbe56123d31, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -43,7 +43,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0.28235295, g: 0.011764706, b: 0.6745098, a: 0}
+        second: {r: 0.7764706, g: 0.6, b: 0.21568628, a: 0}
       data:
         first:
           name: _TintColor

@@ -74,7 +74,6 @@ public class Spiral : MonoBehaviour
 
         meshRenderer.material = m_volumetricLineStripMaterial;
         
-        volLineStrip.SetLineColorAtStart = true;
         volLineStrip.LineColor = m_color;
         volLineStrip.LineWidth = lineWidth;
 
