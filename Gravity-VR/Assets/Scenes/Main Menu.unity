@@ -1975,7 +1975,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11482728, guid: 6f3ad7a010d930843bb48f0d7da014f3, type: 2}
       propertyPath: levelInt
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 11455854, guid: 6f3ad7a010d930843bb48f0d7da014f3, type: 2}
       propertyPath: m_color.b
