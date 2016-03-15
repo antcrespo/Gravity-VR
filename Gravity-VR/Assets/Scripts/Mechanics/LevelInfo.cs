@@ -18,14 +18,14 @@ public class LevelInfo : MonoBehaviour {
         {
             wait += Time.deltaTime;
             if (wait >= restartTimer)
-                SceneManager.LoadSceneAsync(level);
+                SceneManager.LoadScene(level);
         } 
         else if (loading)
         {
             wait += Time.deltaTime;
             if (wait >= .5)
             {
-                SceneManager.LoadSceneAsync(toLoad);
+                SceneManager.LoadScene(toLoad);
             }
         }
         else
