@@ -13,6 +13,7 @@ public class LevelInfo : MonoBehaviour {
     private bool loading = false;
     void Update()
     {
+        
         if (Input.GetButton("Options"))
         {
             wait += Time.deltaTime;
@@ -31,6 +32,52 @@ public class LevelInfo : MonoBehaviour {
         {
             wait = 0f;
         }
+        /*AudioSource source = GetComponent<AudioSource>();
+        if (Input.GetButtonDown("Triangle")) //is L1
+        {
+
+        }
+        else if (Input.GetButtonDown("Share")) //DNE
+        {
+            Debug.Log("Share");
+        }
+        else if (Input.GetButtonDown("Circle")) // is triangle
+        {
+            Debug.Log("Circle");
+        }
+        else if (Input.GetButtonDown("R1")) // is R2
+        {
+            Debug.Log("R1");
+        }
+        else if (Input.GetButtonDown("L1")) // is L2
+        {
+            Debug.Log("L1"); 
+        }
+        else if (Input.GetButtonDown("L2")) //is share
+        {
+            Debug.Log("L2");
+        }
+        else if (Input.GetButtonDown("R2")) //is options
+        {
+            Debug.Log("R2");
+        }
+        else if (Input.GetButtonDown("PS")) //itself
+        {
+            Debug.Log("PS");
+        }
+        else if (Input.GetButtonDown("PadPress")) //is circle
+        {
+            Debug.Log("PadPress");
+            source.Play();
+        }
+        else if (Input.GetButtonDown("L3"))
+        {
+            Debug.Log("L3");
+        }
+        else if (Input.GetButtonDown("R3"))
+        {
+            Debug.Log("R3");
+        }*/
     }
 	public void LoadNext()
     {
