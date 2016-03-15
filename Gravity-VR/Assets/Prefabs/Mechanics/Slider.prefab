@@ -29,8 +29,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118304}
-  m_LocalRotation: {x: 0.04494346, y: 0.25488704, z: -0.16773126, w: -0.95125127}
-  m_LocalPosition: {x: 22.898798, y: 9.62383, z: 13.220628}
+  m_LocalRotation: {x: 0, y: 0.25881907, z: 0, w: -0.9659259}
+  m_LocalPosition: {x: 25.071602, y: 0, z: 14.475097}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,11 +107,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   segments: 5
-  polarSize: 40
-  elevationSize: 7
+  polarSize: 5
+  elevationSize: 30
   radius: 30
-  height: 2
-  elevationAngle: 20
+  height: 5
+  elevationAngle: 0
   polarAngle: 30
   edgePrefab: {fileID: 171566, guid: 42d93e2548e39b749b744b359f989a07, type: 2}
 --- !u!114 &11457206
@@ -154,7 +154,24 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 0
+  - eventID: 15
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11494114}
+          m_MethodName: Select
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -171,7 +188,7 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 1
+  - eventID: 0
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -202,15 +219,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementDimension: 0
   radius: 30
-  minPolar: -15
-  maxPolar: 15
+  minPolar: 20
+  maxPolar: 359
   minElevation: -15
   maxElevation: 15
-  angularSpeed: 0.1
+  angularSpeed: 1
   selected: 0
-  startColor: {r: 0.25882354, g: 0.3882353, b: 0.69803923, a: 1}
-  lookAtColor: {r: 0.254109, g: 0.6911765, b: 0.4379787, a: 0}
-  selectedColor: {r: 0.4455558, g: 0.9044118, b: 0.58163035, a: 0}
+  startColor: {r: 0.25882354, g: 0.84705883, b: 0.69803923, a: 1}
+  lookAtColor: {r: 0.6911765, g: 0.254109, b: 0.4440072, a: 0}
+  selectedColor: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

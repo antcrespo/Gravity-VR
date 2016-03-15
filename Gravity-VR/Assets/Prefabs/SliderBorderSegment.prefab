@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11445858}
   - 23: {fileID: 2300378}
   m_Layer: 0
-  m_Name: VolumetricLinePrefab-2
+  m_Name: SliderBorderSegment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: ca6bf36e0337a0546a5a7283f71dd69f, type: 2}
+  - {fileID: 2100000, guid: 7cb1eea061c47ff43bcf3e361f46643e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
