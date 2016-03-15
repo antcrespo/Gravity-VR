@@ -107,16 +107,10 @@ namespace VolumetricLines
 			UpdateLineVertices(m_lineVertices);
 			// Need to duplicate the material, otherwise multiple volume lines would interfere
 			GetComponent<Renderer>().material = GetComponent<Renderer>().material;
-			if (m_setLineColorAtStart)
-			{
-				GetComponent<Renderer>().sharedMaterial.color = m_lineColor;
-				GetComponent<Renderer>().sharedMaterial.SetFloat("_LineWidth", m_lineWidth);
-			}
-			else 
-			{
+
 				m_lineColor = GetComponent<Renderer>().sharedMaterial.color;
 				m_lineWidth = GetComponent<Renderer>().sharedMaterial.GetFloat("_LineWidth");
-			}
+			
 			GetComponent<Renderer>().sharedMaterial.SetFloat("_LineScale", transform.GetGlobalUniformScaleForLineWidth());
 			m_updateLineColor = false;
 			m_updateLineWidth = false;
