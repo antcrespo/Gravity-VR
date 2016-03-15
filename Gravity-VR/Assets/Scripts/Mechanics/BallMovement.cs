@@ -59,7 +59,7 @@ public class BallMovement : MonoBehaviour {
         }
         else if (collision.gameObject.CompareTag("Barrier"))
         {
-            sign = 0;
+            sign *= -1;
 
             playSound();
         }
