@@ -271,7 +271,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 14eee2f6f7dd42d40878c708c70a6662, type: 2}
+  - {fileID: 2100000, guid: 55ce910637f3ed145a84007b381e4740, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bottom: {fileID: 6531546}
   sign: 1
-  startColor: {r: 0.6039216, g: 0.5647059, b: 0.60784316, a: 1}
+  startColor: {r: 0.8156863, g: 0.5686275, b: 0.25490198, a: 1}
   selected: 0
 --- !u!114 &11410774
 MonoBehaviour:
@@ -503,6 +503,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: spreadCustomCurve.m_RotationOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 55ce910637f3ed145a84007b381e4740, type: 2}
+    - target: {fileID: 0}
+      propertyPath: startColor.r
+      value: 0.8156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: startColor.g
+      value: 0.5686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: startColor.b
+      value: 0.25490198
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
