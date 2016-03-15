@@ -53,12 +53,6 @@ public class Slider : MonoBehaviour {
         if (selected)
             ProcessMovement();
     }
-    // Update is called once per frame
-    /*void LateUpdate () {
-        if (selected)
-            ProcessMovement();
-        
-	}*/
 
     void ProcessMovement()
     {
