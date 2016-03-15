@@ -107,19 +107,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 451682, guid: b5da60c81f2a94d40926d98dacf7ecea, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.33682415
+      value: 0.122787535
       objectReference: {fileID: 0}
     - target: {fileID: 451682, guid: b5da60c81f2a94d40926d98dacf7ecea, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.16317588
+      value: 0.35355315
       objectReference: {fileID: 0}
     - target: {fileID: 451682, guid: b5da60c81f2a94d40926d98dacf7ecea, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.9254165
+      value: -0.6963644
       objectReference: {fileID: 0}
     - target: {fileID: 451682, guid: b5da60c81f2a94d40926d98dacf7ecea, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.059391342
+      value: -0.6123725
       objectReference: {fileID: 0}
     - target: {fileID: 451682, guid: b5da60c81f2a94d40926d98dacf7ecea, type: 2}
       propertyPath: m_RootOrder
@@ -131,7 +131,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11402254, guid: b5da60c81f2a94d40926d98dacf7ecea, type: 2}
       propertyPath: sign
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 11495948, guid: b5da60c81f2a94d40926d98dacf7ecea, type: 2}
       propertyPath: m_Enabled

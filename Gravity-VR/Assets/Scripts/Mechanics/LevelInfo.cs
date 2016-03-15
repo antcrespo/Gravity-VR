@@ -19,7 +19,13 @@ public class LevelInfo : MonoBehaviour {
             wait += Time.deltaTime;
             if (wait >= restartTimer)
                 SceneManager.LoadScene(level);
-        } 
+        }
+        else if (Input.GetButton("Share"))
+        {
+            wait += Time.deltaTime;
+            if (wait >= restartTimer)
+                SceneManager.LoadScene(0);
+        }
         else if (loading)
         {
             wait += Time.deltaTime;

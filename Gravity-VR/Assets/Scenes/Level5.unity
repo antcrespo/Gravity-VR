@@ -350,7 +350,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11452206, guid: eacbd299b93cea04da333edc700d7257, type: 2}
       propertyPath: shotSpeed
-      value: -0.6
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 11452206, guid: eacbd299b93cea04da333edc700d7257, type: 2}
       propertyPath: shotLife
@@ -1475,7 +1475,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11402254, guid: b5da60c81f2a94d40926d98dacf7ecea, type: 2}
       propertyPath: sign
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11484844, guid: b5da60c81f2a94d40926d98dacf7ecea, type: 2}
