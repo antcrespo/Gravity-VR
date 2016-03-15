@@ -13,8 +13,15 @@ public class Slider : MonoBehaviour {
     public float angularSpeed = .1f;
 
     public bool selected = false;
+
+    public Color startColor;
+    public Color lookAtColor;
+    public Color selectedColor;
+
     private bool seen = false;
     private int sign = 0;
+
+
     //public float curDegreesMoved = 0;
     //Color original;
     public SphericalCoordinates startPosition;
@@ -98,15 +105,14 @@ public class Slider : MonoBehaviour {
                 sliders[i].GetComponent<Slider>().Deselect();
             }
             selected = true;
-            Color color = Color.green;
-            setLineColors(color);
+            setLineColors(selectedColor);
         }
     }
 
     public void Deselect()
     {
         selected = false;
-        Color color = seen ? Color.blue : Color.magenta;
+        Color color = seen ? lookAtColor : startColor;
         setLineColors(color);
     }
 
@@ -115,7 +121,7 @@ public class Slider : MonoBehaviour {
         seen = !seen;
         if (!selected)
         {
-            Color color = seen ? Color.blue : Color.magenta;
+            Color color = seen ? lookAtColor : startColor;
             setLineColors(color);
         }
     }

@@ -208,6 +208,9 @@ MonoBehaviour:
   maxElevation: 15
   angularSpeed: 0.1
   selected: 0
+  startColor: {r: 0.25882354, g: 0.3882353, b: 0.69803923, a: 1}
+  lookAtColor: {r: 0.254109, g: 0.6911765, b: 0.4379787, a: 0}
+  selectedColor: {r: 0.4455558, g: 0.9044118, b: 0.58163035, a: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -307,6 +310,46 @@ Prefab:
       propertyPath: m_Delegates.Array.data[3].callback.m_TypeName
       value: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI, Version=1.0.0.0,
         Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: startColor.r
+      value: 0.25882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: startColor.g
+      value: 0.3882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: startColor.b
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: startColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lookAtColor.r
+      value: 0.254109
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lookAtColor.g
+      value: 0.6911765
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lookAtColor.b
+      value: 0.4379787
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: selectedColor.r
+      value: 0.4455558
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: selectedColor.g
+      value: 0.9044118
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: selectedColor.b
+      value: 0.58163035
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

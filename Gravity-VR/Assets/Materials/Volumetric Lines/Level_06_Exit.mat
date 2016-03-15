@@ -26,7 +26,7 @@ Material:
       data:
         first:
           name: _LineWidth
-        second: 0.8
+        second: 1
       data:
         first:
           name: _LineScale
